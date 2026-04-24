@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Shop — Lunera</title>
+    <meta name="description" content="Browse the full Lunera collection." />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <nav class="nav">
+        <button class="nav__back-btn" onclick="goBackOrHome()" aria-label="Go Back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+  </button>
+        <a href="index.html" class="nav__logo">LUNERA</a>
+        <div class="nav__links">
+            <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="shop.html?cat=men">Men</a><a
+                href="shop.html?cat=women">Women</a><a href="shop.html?tag=new-drop">New Drops</a><a
+                href="about.html">About</a>
+        </div>
+        <div class="nav__actions">
+            <a href="shop.html" class="nav__icon nav__search-icon"><svg width="18" height="18" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                </svg></a>
+            <a href="cart.html" class="nav__icon" style="position:relative"><svg width="18" height="18"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg><span class="nav__cart-count" style="display:none">0</span></a>
+            <a href="login.html" class="nav__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                </svg></a>
+        </div>
+    </nav>
+    <div class="nav__mobile" id="mobileNav">
+        <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="shop.html?cat=men">Men</a><a
+            href="shop.html?cat=women">Women</a><a href="shop.html?tag=new-drop">New Drops</a><a
+            href="about.html">About</a><a href="contact.html">Contact</a>
+    </div>
+
+    <!-- FILTER BACKDROP -->
+    <div class="filter-backdrop" id="filterBackdrop" onclick="closeFilters()"></div>
+
+    <!-- FILTER DRAWER (off-canvas on mobile, sticky sidebar on tablet+) -->
+    <aside class="filter-drawer" id="filterDrawer">
+        <div class="filter-drawer-header">
+            <h3>Filters</h3>
+            <button class="filter-close-btn" onclick="closeFilters()">✕</button>
+        </div>
+
+        <div class="filter-group">
+            <div class="filter-group__title">Category</div>
+            <label class="filter-option"><input type="checkbox" value="tops" onchange="applyFilters()" /> Tops</label>
+            <label class="filter-option"><input type="checkbox" value="bottoms" onchange="applyFilters()" />
+                Bottoms</label>
+            <label class="filter-option"><input type="checkbox" value="dresses" onchange="applyFilters()" />
+                Dresses</label>
+            <label class="filter-option"><input type="checkbox" value="outerwear" onchange="applyFilters()" />
+                Outerwear</label>
+            <label class="filter-option"><input type="checkbox" value="footwear" onchange="applyFilters()" />
+                Footwear</label>
+            <label class="filter-option"><input type="checkbox" value="sets" onchange="applyFilters()" /> Sets</label>
+        </div>
+
+        <div class="filter-group">
+            <div class="filter-group__title">Gender</div>
+            <label class="filter-option"><input type="checkbox" value="men" onchange="applyFilters()" /> Men</label>
+            <label class="filter-option"><input type="checkbox" value="women" onchange="applyFilters()" /> Women</label>
+            <label class="filter-option"><input type="checkbox" value="unisex" onchange="applyFilters()" />
+                Unisex</label>
+        </div>
+
+        <div class="filter-group">
+            <div class="filter-group__title">Size</div>
+            <div class="size-grid">
+                <button class="size-btn" onclick="toggleSize(this)">XS</button>
+                <button class="size-btn" onclick="toggleSize(this)">S</button>
+                <button class="size-btn" onclick="toggleSize(this)">M</button>
+                <button class="size-btn" onclick="toggleSize(this)">L</button>
+                <button class="size-btn" onclick="toggleSize(this)">XL</button>
+                <button class="size-btn" onclick="toggleSize(this)">XXL</button>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <div class="filter-group__title">Max Price</div>
+            <div
+                style="display:flex;justify-content:space-between;font-size:.8rem;color:var(--grey);margin-bottom:.5rem">
+                <span>₵0</span><span id="priceLabel">₵3600</span>
+            </div>
+            <input type="range" class="price-slider" min="0" max="3600" value="3600" id="priceSlider"
+                oninput="document.getElementById('priceLabel').textContent='$'+this.value;applyFilters()" />
+        </div>
+
+        <button class="btn btn-dark btn-sm btn-full" onclick="clearFilters()">Clear All</button>
+    </aside>
+
+    <div class="page-content">
+        <div style="padding:1.5rem 4% 0">
+            <div class="section-label" style="margin-bottom:.3rem">Discover</div>
+            <h1 class="section-title" style="text-align:left;margin-bottom:1.5rem">The Collection</h1>
+
+            <div class="shop-layout" id="shopLayout">
+                <!-- Products column -->
+                <div>
+                    <div class="shop-toolbar">
+                        <span class="shop-toolbar__count" id="productCount">Loading...</span>
+                        <button class="filter-trigger-btn" onclick="openFilters()">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="4" y1="6" x2="20" y2="6" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
+                                <line x1="11" y1="18" x2="13" y2="18" />
+                            </svg>
+                            Filters
+                        </button>
+                        <select class="sort-select" id="sortSelect" onchange="applyFilters()">
+                            <option value="default">Featured</option>
+                            <option value="newest">Newest</option>
+                            <option value="price-asc">Price ↑</option>
+                            <option value="price-desc">Price ↓</option>
+                            <option value="rating">Top Rated</option>
+                        </select>
+                    </div>
+                    <div class="products-grid" id="productsGrid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="margin-top:3rem">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-brand__logo">LUNERA</div>
+                <p>Premium streetwear meets minimal luxury.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="shop.html?cat=men">Men</a></li>
+                    <li><a href="shop.html?cat=women">Women</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Lunera</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom"><span>© 2026 Lunera.</span><span>Privacy · Terms</span></div>
+    </footer>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+        <a href="index.html" class="bottom-nav__item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>Home</a>
+        <a href="shop.html" class="bottom-nav__item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+            </svg>Shop</a>
+        <a href="cart.html" class="bottom-nav__item" style="position:relative"><svg viewBox="0 0 24 24" fill="none"
+                stroke-width="2">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg><span class="bottom-nav__badge" style="display:none">0</span>Cart</a>
+        <a href="login.html" class="bottom-nav__item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+            </svg>Profile</a>
+    </nav>
+
+    <script src="app.js"></script>
+    <script>
+        let activeSizes = new Set();
+        let filtered = [...PRODUCTS];
+
+        function openFilters() {
+            document.getElementById('filterDrawer').classList.add('open');
+            document.getElementById('filterBackdrop').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeFilters() {
+            document.getElementById('filterDrawer').classList.remove('open');
+            document.getElementById('filterBackdrop').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function toggleSize(btn) {
+            btn.classList.toggle('active');
+            const size = btn.textContent;
+            if (activeSizes.has(size)) activeSizes.delete(size); else activeSizes.add(size);
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const checked = [...document.querySelectorAll('.filter-drawer input[value]:checked')].map(i => i.value);
+            const cats = checked.filter(v => ['tops', 'bottoms', 'dresses', 'outerwear', 'footwear', 'sets'].includes(v));
+            const genders = checked.filter(v => ['men', 'women', 'unisex'].includes(v));
+            const maxPrice = parseInt(document.getElementById('priceSlider').value);
+            const sort = document.getElementById('sortSelect').value;
+            const params = new URLSearchParams(window.location.search);
+            const paramCat = params.get('cat'), paramTag = params.get('tag');
+
+            filtered = PRODUCTS.filter(p => {
+                if (cats.length && !cats.includes(p.category)) return false;
+                if (genders.length && !genders.includes(p.gender)) return false;
+                if (activeSizes.size && !p.sizes.some(s => activeSizes.has(s))) return false;
+                if (p.price > maxPrice) return false;
+                if (paramCat && p.gender !== paramCat && p.category !== paramCat) return false;
+                if (paramTag && p.tag !== paramTag) return false;
+                return true;
+            });
+
+            if (sort === 'price-asc') filtered.sort((a, b) => a.price - b.price);
+            else if (sort === 'price-desc') filtered.sort((a, b) => b.price - a.price);
+            else if (sort === 'rating') filtered.sort((a, b) => b.rating - a.rating);
+            else if (sort === 'newest') filtered.sort((a, b) => b.id - a.id);
+
+            renderGrid();
+        }
+
+        function renderGrid() {
+            const grid = document.getElementById('productsGrid');
+            document.getElementById('productCount').textContent = `${filtered.length} product${filtered.length !== 1 ? 's' : ''}`;
+            grid.innerHTML = filtered.length === 0
+                ? `<div class="empty-state" style="grid-column:1/-1"><div class="empty-state__icon">🔍</div><h3>No products found</h3><p>Try adjusting your filters.</p></div>`
+                : filtered.map(p => productCardHTML(p)).join('');
+        }
+
+        function clearFilters() {
+            document.querySelectorAll('.filter-drawer input').forEach(i => i.checked = false);
+            document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('priceSlider').value = 300;
+            document.getElementById('priceLabel').textContent = '₵3600';
+            activeSizes.clear();
+            window.history.replaceState({}, '', 'shop.html');
+            applyFilters();
+        }
+
+        applyFilters();
+    </script>
+</body>
+
+</html>

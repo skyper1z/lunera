@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — Lunera</title>
+    <meta name="description" content="The story behind Lunera — premium streetwear meets minimal luxury." />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <nav class="nav">
+        <a href="index.html" class="nav__logo">LUNERA</a>
+        <div class="nav__links">
+            <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="shop.html?cat=men">Men</a><a
+                href="shop.html?cat=women">Women</a><a href="shop.html?tag=new-drop">New Drops</a><a
+                href="about.html">About</a>
+        </div>
+        <div class="nav__actions">
+            <a href="cart.html" class="nav__icon" style="position:relative"><svg width="18" height="18"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg><span class="nav__cart-count" style="display:none">0</span></a>
+            <a href="login.html" class="nav__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                </svg></a>
+            <button class="nav__back-btn" onclick="goBackOrHome()" aria-label="Go Back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+  </button>
+        </div>
+    </nav>
+    <div class="nav__mobile" id="mobileNav">
+        <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="shop.html?cat=men">Men</a><a
+            href="about.html">About</a><a href="cart.html" class="btn btn-primary btn-sm">View Cart</a>
+    </div>
+
+    <div class="page-content">
+        <!-- ABOUT HERO -->
+        <section class="section">
+            <div class="about-hero animate-fade-up">
+                <div class="about-hero__content">
+                    <div class="section-label">Our Story</div>
+                    <h1
+                        style="font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;line-height:1.1;color:var(--white);margin-bottom:1.2rem">
+                        Born in the Night.<br /><span style="color:var(--gold)">Worn Every Day.</span></h1>
+                    <p style="color:var(--beige);line-height:1.8;font-size:.95rem;margin-bottom:1.5rem">Lunera was born
+                        from a simple belief: that fashion should feel like power. Not the kind you inherit — the kind
+                        you build, piece by piece, with intention.</p>
+                    <p style="color:var(--grey);line-height:1.8;font-size:.9rem">We design for the bold. For those who
+                        walk into a room and own it before saying a word. For the ones who know that what you wear is a
+                        silent statement.</p>
+                </div>
+                <div class="about-hero__image">
+                    <img src="images/hero_model.png" alt="Lunera Brand Story" style="filter:brightness(.9)" />
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-bottom:5rem"
+                class="animate-fade-up">
+                <div class="about-stat">
+                    <div class="about-stat__number">12K+</div>
+                    <div class="about-stat__label">Happy Customers</div>
+                </div>
+                <div class="about-stat">
+                    <div class="about-stat__number">85+</div>
+                    <div class="about-stat__label">Unique Pieces</div>
+                </div>
+                <div class="about-stat">
+                    <div class="about-stat__number">18</div>
+                    <div class="about-stat__label">Countries Reached</div>
+                </div>
+                <div class="about-stat">
+                    <div class="about-stat__number">4.8★</div>
+                    <div class="about-stat__label">Average Rating</div>
+                </div>
+            </div>
+
+            <!-- Values -->
+            <div class="section-header animate-fade-up">
+                <div class="section-label">What Drives Us</div>
+                <h2 class="section-title">Our Values</h2>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:5rem"
+                class="animate-fade-up">
+                <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;transition:border-color .3s"
+                    onmouseover="this.style.borderColor='rgba(201,168,76,.3)'"
+                    onmouseout="this.style.borderColor='var(--border)'">
+                    <div style="font-size:2.5rem;margin-bottom:1rem">🌙</div>
+                    <h3 style="font-weight:700;margin-bottom:.6rem">Identity First</h3>
+                    <p style="color:var(--grey);font-size:.88rem;line-height:1.7">Every piece is designed to sharpen
+                        your identity. We don't just make clothes — we make statements that speak before you do.</p>
+                </div>
+                <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;transition:border-color .3s"
+                    onmouseover="this.style.borderColor='rgba(201,168,76,.3)'"
+                    onmouseout="this.style.borderColor='var(--border)'">
+                    <div style="font-size:2.5rem;margin-bottom:1rem">✨</div>
+                    <h3 style="font-weight:700;margin-bottom:.6rem">Quality Without Compromise</h3>
+                    <p style="color:var(--grey);font-size:.88rem;line-height:1.7">From fabric selection to the final
+                        stitch, every detail is intentional. We source ethically, build durably, and deliver
+                        luxuriously.</p>
+                </div>
+                <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;transition:border-color .3s"
+                    onmouseover="this.style.borderColor='rgba(201,168,76,.3)'"
+                    onmouseout="this.style.borderColor='var(--border)'">
+                    <div style="font-size:2.5rem;margin-bottom:1rem">🚀</div>
+                    <h3 style="font-weight:700;margin-bottom:.6rem">Always Evolving</h3>
+                    <p style="color:var(--grey);font-size:.88rem;line-height:1.7">Fashion moves fast and so do we. New
+                        drops every Friday. New collections every season. Always fresh, always ahead.</p>
+                </div>
+            </div>
+
+            <!-- CTA Banner -->
+            <div style="background:linear-gradient(135deg,var(--card-bg) 0%,rgba(201,168,76,.05) 100%);border:1px solid rgba(201,168,76,.2);border-radius:var(--radius-xl);padding:3.5rem;text-align:center"
+                class="animate-fade-up">
+                <div class="section-label">Be Part of It</div>
+                <h2 style="font-size:2rem;font-weight:800;margin-bottom:.8rem">Join the Lunera Movement</h2>
+                <p style="color:var(--grey);margin-bottom:2rem">Wear confidence. Own the night. Be Lunera.</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+                    <a href="shop.html" class="btn btn-primary btn-lg">Shop the Collection</a>
+                    <a href="contact.html" class="btn btn-outline btn-lg">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-brand__logo">LUNERA</div>
+                <p>Premium streetwear meets minimal luxury.</p>
+                <div class="footer-socials"><a href="#" class="footer-social-link">📷</a><a href="#"
+                        class="footer-social-link">🎵</a><a href="#" class="footer-social-link">𝕏</a></div>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="shop.html">All Products</a></li>
+                    <li><a href="shop.html?tag=new-drop">New Drops</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Lunera</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom"><span>© 2026 Lunera.</span><span>Privacy · Terms</span></div>
+    </footer>
+
+    
+<nav class="bottom-nav">
+  <a href="index.html" class="bottom-nav__item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+  <a href="shop.html" class="bottom-nav__item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>Shop</a>
+  <a href="cart.html" class="bottom-nav__item" style="position:relative"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="bottom-nav__badge" style="display:none">0</span>Cart</a>
+  <a href="login.html" class="bottom-nav__item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile</a>
+</nav>
+
+<script src="app.js"></script>
+</body>
+
+</html>
